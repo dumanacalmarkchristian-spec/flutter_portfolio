@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/app_state.dart';
+import 'models/network_controller.dart';
 import 'screens/home_screen.dart';
 import 'screens/activity_one_screen.dart';
 import 'screens/activity_two_screen.dart';
 import 'screens/settings_screen.dart';
+import 'screens/network_monitor_screen.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => AppState(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppState()),
+        ChangeNotifierProvider(create: (_) => NetworkController()),
+      ],
       child: const PortfolioApp(),
     ),
   );
@@ -42,6 +47,7 @@ class PortfolioApp extends StatelessWidget {
         '/activity-one': (context) => const ActivityOneScreen(),
         '/activity-two': (context) => const ActivityTwoScreen(),
         '/settings': (context) => const SettingsScreen(),
+        '/network-monitor': (context) => const NetworkMonitorScreen(),
       },
     );
   }

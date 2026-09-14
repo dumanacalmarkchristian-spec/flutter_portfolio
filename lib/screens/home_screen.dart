@@ -78,6 +78,14 @@ class HomeScreen extends StatelessWidget {
                       onTap: () =>
                           Navigator.pushNamed(context, '/activity-two'),
                     ),
+                    const SizedBox(height: 12),
+                    ActivityCard(
+                      title: 'Network Monitor',
+                      subtitle: 'Real-time Wi-Fi / Cellular handover handling',
+                      icon: Icons.network_check,
+                      onTap: () =>
+                          Navigator.pushNamed(context, '/network-monitor'),
+                    ),
                   ],
                 ),
               ),
